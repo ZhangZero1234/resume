@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="dist/css/swiper.min.css">
+
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+
+    <style>
+    .page{
+        position: relative;
+        background:url("image/bodybg.jpg") no-repeat center center;
+        background-size: 100% 100%;
+    }
+        .page1{
+            
+        }
+        .page1_top{
+            position:absolute;
+            top: 0;
+            left: 0; 
+            height:209px; 
+            width: 100%;
+            background: url("image/topbg.png") no-repeat center center;
+            background-size: 100% 100%;
+            opacity: 0;
+        }
+        .page1_top_show{ 
+            animation:topmove 2s 1 ;
+            -webkit-animation:topmove 2s 1; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+           -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes topmove
+        {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+
+        .page1_bottomLeft{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            -webkit-animation-fill-mode: forwards;
+
+        }
+        .page1_bottomLeft_show{
+           animation:bottomLeft 2s 1 .3s;
+           -webkit-animation:bottomLeft 2s 1 .3s; /* Safari 和 Chrome */
+           animation-fill-mode: forwards;
+           -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes bottomLeft
+        {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+
+        .page1_bottomCenter{
+             position: absolute;
+             bottom: 72px;
+             left: 10px;
+             opacity: 0;
+        }
+        .page1_bottomCenter_show{
+            animation:bottomCenter 2s 1 .6s;
+           -webkit-animation:bottomCenter 2s 1 .6s; /* Safari 和 Chrome */
+           animation-fill-mode: forwards;
+           -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes bottomCenter
+        {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .page1_bottomCenRight{
+             position: absolute;
+             bottom: 2px;
+             left: 96px;
+             opacity: 0;
+        }
+        .page1_bottomCenRight_show{
+            animation:bottomCenRight 2s 1 .9s;
+           -webkit-animation:bottomCenRight 2s 1 .9s; /* Safari 和 Chrome */
+           animation-fill-mode: forwards;
+           -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes bottomCenRight
+        {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+
+        .page1_bottomRight{
+             position: absolute;
+             bottom: 48px;
+             right: 20px;
+             transform:scale(2);
+             opacity: 0;
+        }
+        .page1_bottomRight_show{
+            animation:bottomRight 2s 1 5.6s;
+           -webkit-animation:bottomRight 2s 1 5.6s; /* Safari 和 Chrome */
+           animation-fill-mode: forwards;
+           -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes bottomRight
+        {
+            from {opacity: 0;transform:scale(2);}
+            to {opacity: 1;transform:scale(1);}
+        }
+        .page1Water{
+             position: absolute;
+             bottom: 108px;
+             right: 30px;
+             transform:scale(0);
+             opacity: 0;
+        }
+        .page1Water_show{
+            /*160*56*/
+           animation:page1Water 1.5s 1 5s;
+           -webkit-animation:page1Water 1.5s 1 5s; /* Safari 和 Chrome */
+           animation-fill-mode: forwards;
+           -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes page1Water
+        {
+            from {opacity: 0;transform:scale(0);}
+            to {opacity: 1;transform:scale(1);}
+        }
+        .page1Pen{
+             position: absolute;
+             /*bottom: 138px;*/
+             bottom: 340px;
+             right: 20px;
+             opacity: 0;
+        }
+        .page1Pen_show{
+            animation:page1Pen 1.5s 1 4s;
+            -webkit-animation:page1Pen 1.5s 1 4s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes page1Pen
+        {
+            from {opacity: 0;bottom: 340px;}
+            to {opacity: 1;bottom: 138px;}
+        }
+        .page1Header{
+             position: absolute;
+             top: 30px;
+             left: -305px;
+            /* left: 50%;
+             margin-left: -150px;  */    
+        }
+        .page1Header_show{
+            animation:page1Header 2s 1 1.2s;
+            -webkit-animation:page1Header 2s 1 1.2s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;   
+        }
+        @-webkit-keyframes page1Header
+        {
+            from {left: -305px;}
+            to {left: 50%;margin-left: -150px;}
+        }
+        .ttl{
+            position: absolute;
+            top:22px;
+            left: 64px;
+            transform:rotateZ(-8deg); 
+            color: #fff;
+            font-size: 30px;
+        }
+        .page1TopPen{
+            position: absolute;
+            top: 108px;
+            left: -160px;
+        }
+        .page1TopPen_show{
+            animation:pageTopPen 1.5s 1 1.2s;
+            -webkit-animation:pageTopPen 1.5s 1 1.2s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+        }
+        @-webkit-keyframes pageTopPen
+        {
+            from {left: -160px;}
+            to {left: 210px;}
+        }
+        .page1HdImg{
+            position: absolute;
+            top: 210px;
+            left: 50%;
+            margin-left: -77.5px; 
+            transform:rotateZ(180deg);
+            opacity: 0;
+        }
+        .page1HdImg_show{
+            animation:page1HdImg 1.5s 1 3s;
+            -webkit-animation:page1HdImg 1.5s 1 3s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page1HdImg
+        {
+            from {opacity: 0;transform:rotateZ(180deg);}
+            to {opacity: 1;transform:rotateZ(0deg);}
+        }
+        .page2BttmTree{
+            position: absolute;
+            bottom: 0px;
+            left: 4px;
+            opacity: 0;
+        }
+        .page2BttmTree_show{
+            animation:pageBttmTree 2s 1 ;
+            -webkit-animation:pageBttmTree 2s 1 ; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes pageBttmTree
+        {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .page2Point{
+            position: absolute;
+            top: 28px;
+            left: 26px; 
+            transform:rotateZ(180deg); 
+            opacity: 0 ;         
+        }
+        .page2Point_show{
+            animation:page2Point 2s 1 ;
+            -webkit-animation:page2Point 2s 1 ; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2Point
+        {
+            from {opacity: 0;transform:rotateZ(180deg);}
+            to {opacity: 1;transform:rotateZ(0deg);}
+        }
+
+
+        .page2Point2{
+            position: absolute;
+            top: 102px;
+            transform:rotateZ(180deg); 
+            opacity: 0 ;              
+        }
+        .page2Point2_show{
+            animation:page2Point2 2s 1 .3s;
+            -webkit-animation:page2Point2 2s 1 .3s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2Point2
+        {
+            from {opacity: 0;transform:rotateZ(180deg);}
+            to {opacity: 1;transform:rotateZ(0deg);}
+        }
+
+        .page2Point3{
+            position: absolute;
+            top: 174px;
+            transform:rotateZ(180deg); 
+            opacity: 0 ;               
+        }
+        .page2Point3_show{
+            animation:page2Point3 2s 1 .6s;
+            -webkit-animation:page2Point3 2s 1 .6s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2Point3
+        {
+            from {opacity: 0;transform:rotateZ(180deg);}
+            to {opacity: 1;transform:rotateZ(0deg);}
+        }
+
+
+        .page2Point4{
+            position: absolute;
+            top: 244px;
+            transform:rotateZ(180deg); 
+            opacity: 0 ;               
+        }
+        .page2Point4_show{
+            animation:page2Point4 2s 1 .9s;
+            -webkit-animation:page2Point4 2s 1 .9s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2Point4
+        {
+            from {opacity: 0;transform:rotateZ(180deg);}
+            to {opacity: 1;transform:rotateZ(0deg);}
+        }
+
+
+        .letter{
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            color: #fff;
+        }
+        .page2right{
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            opacity: 0;
+        }
+        .page2rightOne{
+
+        }
+        .page2rightTwo{
+            top: 122px;
+        }
+        .page2rightThree{
+            top: 254px;
+        }
+        .page2rightFour{
+            top: 356px;
+        }
+        .page2rightFive{
+            top: 470px;
+        }
+        .page2rightOne_show{
+            animation:page2rightOne 2s 1 1.5s;
+            -webkit-animation:page2rightOne 2s 1 1.5s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2rightOne
+        {
+            from {opacity: 0;right: 224px;}
+            to {opacity: 1;right: 20px;}
+        }
+
+        .page2rightTwo_show{
+            animation:page2rightTwo 2s 1 3.5s;
+            -webkit-animation:page2rightTwo 2s 1 2s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2rightTwo
+        {
+            from {opacity: 0;right: -204px;}
+            to {opacity: 1;right: 20px;}
+        }
+
+        .page2rightThree_show{
+            animation:page2rightThree 2s 1 5.5s;
+            -webkit-animation:page2rightThree 2s 1 2.5s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2rightThree
+        {
+            from {opacity: 0;right: 224px;}
+            to {opacity: 1;right: 20px;}
+        }
+
+        .page2rightFour_show{
+            animation:pagerighFour 2s 1 7.5s;
+            -webkit-animation:pagerighFour 2s 1 3s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes pagerighFour
+        {
+            from {opacity: 0;right: -204px;}
+            to {opacity: 1;right: 20px;}
+        }
+
+        .page2rightFive_show{
+            animation:page2rightFive 2s 1 9.5s;
+            -webkit-animation:page2rightFive 2s 1 3.5s; /* Safari 和 Chrome */
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards; 
+        }
+        @-webkit-keyframes page2rightFive
+        {
+            from {opacity: 0;right: 224px;}
+            to {opacity: 1;right: 20px;}
+        }
+        .info{
+            position: absolute;
+            color: #fff;
+            top:38px;
+        }
+        .page2right:nth-of-type(2n) .info{
+            left: 16px;
+
+        }
+        .page2right:nth-of-type(2n+1) .info{
+           right: 68px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+
+            <div class="swiper-slide page page1">
+                <div class="page1_top">
+                </div>
+                <div class="page1_bottomLeft">
+                    <img src="image/imageplant.png" alt="">
+                </div>
+                <div class="page1_bottomCenter">
+                    <img src="image/mount.png" alt="">
+                </div>
+                <div class="page1_bottomCenRight">
+                    <img src="image/bird.png" alt="">
+                </div>
+                <div class="page1_bottomRight">
+                    <img src="image/name.png" alt="">
+                </div>
+                <div class="page1Water">
+                    <img src="image/water.png" alt="">
+                </div>
+                <div class="page1Pen">
+                    <img src="image/pen.png" alt="">
+                </div>
+                <div class="page1Header">
+                    <img src="image/ttl.png" alt="">
+                    <span class="ttl">个人简历</span>
+                </div>
+                <div class="page1TopPen">
+                    <img src="image/toppen.png" alt="">
+                </div>
+                <div class="page1HdImg">
+                    1
+                    <img src="image/hdimg.png" alt="">
+                </div>
+            </div>
+
+
+            <div class="swiper-slide  page page2">
+                <div class="page2BttmTree">
+                    <img src="image/tree.png" alt="">
+                </div>
+                <div class="page2Point page2Point1">
+                    <img src="image/point.png" alt="">
+                    <span class="letter">个</span>
+                </div>
+                <div class="page2Point page2Point2">
+                    <img src="image/point.png" alt="">
+                    <span class="letter">人</span>
+                </div>
+                <div class="page2Point page2Point3">
+                    <img src="image/point.png" alt="">
+                    <span class="letter">信</span>
+                </div>
+                <div class="page2Point page2Point4">
+                    <img src="image/point.png" alt="">
+                    <span class="letter">息</span>
+                </div>
+
+                <div class="page2right page2rightOne">
+                    <img src="image/right.png" alt="">
+                    <span class="info">姓名:</span>
+                </div>
+                <div class="page2right page2rightTwo">
+                    <img src="image/left.png" alt="">
+                    <span class="info">性别：</span>
+                </div>
+                <div class="page2right page2rightThree">
+                    <img src="image/right.png" alt="">
+                    <span class="info">年龄：</span>
+                </div>
+                <div class="page2right page2rightFour">
+                    <img src="image/left.png" alt="">
+                    <span class="info">籍贯：</span>
+                </div>
+                <div class="page2right page2rightFive">
+                    <img src="image/right.png" alt="">
+                    <span class="info">出生日期：</span>
+                </div>
+            </div>
+
+
+            <div class="swiper-slide  page page3">Slide 3</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="dist/js/swiper.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        $(function(){
+            $(".page1_top").addClass("page1_top_show");
+            $(".page1_bottomLeft").addClass("page1_bottomLeft_show");
+            $(".page1_bottomCenter").addClass("page1_bottomCenter_show");
+            $(".page1_bottomCenRight").addClass("page1_bottomCenRight_show");
+            $(".page1Header").addClass("page1Header_show");
+            $(".page1TopPen").addClass("page1TopPen_show");
+            $(".page1HdImg").addClass("page1HdImg_show");
+            $(".page1Pen").addClass("page1Pen_show");
+            $(".page1Water").addClass("page1Water_show");
+            $(".page1_bottomRight").addClass("page1_bottomRight_show");
+            var swiper = new Swiper('.swiper-container', {
+                onSlideChangeEnd: function(swiper){
+                    // alert(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+                    if(swiper.activeIndex==0)
+                    {
+                        $(".page1_top").addClass("page1_top_show");
+                        $(".page1_bottomLeft").addClass("page1_bottomLeft_show");
+                        $(".page1_bottomCenter").addClass("page1_bottomCenter_show");
+                        $(".page1_bottomCenRight").addClass("page1_bottomCenRight_show");
+                        $(".page1Header").addClass("page1Header_show");
+                        $(".page1TopPen").addClass("page1TopPen_show");
+                        $(".page1HdImg").addClass("page1HdImg_show");
+                        $(".page1Pen").addClass("page1Pen_show");
+                        $(".page1Water").addClass("page1Water_show");
+                        $(".page1_bottomRight").addClass("page1_bottomRight_show");
+                    }
+                    else{
+                        $(".page1_top").removeClass("page1_top_show");
+                        $(".page1_bottomLeft").removeClass("page1_bottomLeft_show");
+                        $(".page1_bottomCenter").removeClass("page1_bottomCenter_show");
+                        $(".page1_bottomCenRight").removeClass("page1_bottomCenRight_show");
+                        $(".page1Header").removeClass("page1Header_show");
+                        $(".page1TopPen").removeClass("page1TopPen_show");
+                        $(".page1HdImg").removeClass("page1HdImg_show");
+                        $(".page1Pen").removeClass("page1Pen_show");
+                        $(".page1Water").removeClass("page1Water_show");
+                        $(".page1_bottomRight").removeClass("page1_bottomRight_show");
+                    }
+                    if(swiper.activeIndex==1)
+                    {
+                        $(".page2BttmTree").addClass("page2BttmTree_show");
+                        $(".page2Point").addClass("page2Point_show");
+                        $(".page2Point2").addClass("page2Point2_show");
+                        $(".page2Point3").addClass("page2Point3_show");
+                        $(".page2Point4").addClass("page2Point4_show");
+                        $(".page2rightOne").addClass("page2rightOne_show");
+                        $(".page2rightTwo").addClass("page2rightTwo_show");
+                        $(".page2rightThree").addClass("page2rightThree_show");
+                        $(".page2rightFour").addClass("page2rightFour_show");
+                        $(".page2rightFive").addClass("page2rightFive_show");
+                    }
+                    else{
+                        $(".page2BttmTree").removeClass("page2BttmTree_show");
+                        $(".page2Point").removeClass("page2Point_show");
+                        $(".page2Point2").removeClass("page2Point2_show");
+                        $(".page2Point3").removeClass("page2Point3_show");
+                        $(".page2Point4").removeClass("page2Point4_show");
+                        $(".page2rightOne").removeClass("page2rightOne_show");
+                        $(".page2rightTwo").removeClass("page2rightTwo_show");
+                        $(".page2rightThree").removeClass("page2rightThree_show");
+                        $(".page2rightFour").removeClass("page2rightFour_show");
+                        $(".page2rightFive").removeClass("page2rightFive_show");
+                    }
+                },
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                direction: 'vertical'
+    });
+        });        
+    </script>
+
+    <script>
+    // alert(1);
+    
+
+   
+    </script>
+</body>
+</html>
